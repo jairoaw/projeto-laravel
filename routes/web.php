@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {         //:: operador de reducao de escopo
+    return view('welcome');         //renderiza a pagina que está na pasta views
+});
+
+Route::get('/teste', function () {
+    return 'o teste funcionou';
+});
+
+Route::get('/teste-com-view', function () {
+    return view('teste');
 });
