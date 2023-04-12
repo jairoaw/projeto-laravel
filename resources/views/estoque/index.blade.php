@@ -1,1 +1,1 @@
-index do estoque
+Index de estoque
