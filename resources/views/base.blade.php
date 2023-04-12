@@ -2,6 +2,7 @@
 <html x-data="data()" lang="en">
 
 <head>
+    <title>@yield ('title')</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -35,13 +36,24 @@
                         <ul class="mt-6 leading-10">
                             <li class="relative px-2 py-1 ">
                                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500" 
-                                    href=" #">
+                                    href=" /">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                     </svg>
-                                    <span class="ml-4">DASHBOARD</span>
+                                    <span class="ml-4">INICIAL</span>
+                                </a>
+                            </li>
+                            <li class="relative px-2 py-1 ">
+                                <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500" 
+                                    href=" {{route ('estoque')}}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                    </svg>
+                                    <span class="ml-4">Estoque</span>
                                 </a>
                             </li>
                             <li class="relative px-2 py-1" x-data="{ Open : false  }">
@@ -328,12 +340,13 @@
                         <div class="grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9">
                             <div class="col-span-12 mt-8">
                                 <div class="flex items-center h-10 intro-y">
-                                    <h2 class="mr-5 text-lg font-medium truncate">Dashboard</h2>
+                                    <h2 class="mr-5 text-lg font-medium truncate">@yield ('title')</h2>
                                 </div>
                                 
                             </div>
                             <div class="col-span-12 mt-5">
-                                CONTEÚDO
+                                
+                                @yield('content')
                             </div>
                             
                         </div>

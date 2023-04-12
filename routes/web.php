@@ -18,7 +18,8 @@ Route::get('/', function () {         //:: operador de reducao de escopo
     return view('welcome');         //renderiza a pagina que está na pasta views
 });
 
-Route::get('/estoque', [EstoqueController::class, 'index']);      //o primeiro parametro é a própria classe e o segundo é a funcao que vai ser executada dentro da classe (index)
+Route::get('/estoque', [EstoqueController::class, 
+    'index'])->name('estoque');      //o primeiro parametro é a própria classe e o segundo é a funcao que vai ser executada dentro da classe (index)
 
 
 
