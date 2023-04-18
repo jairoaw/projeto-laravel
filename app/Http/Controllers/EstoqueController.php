@@ -10,4 +10,10 @@ class EstoqueController extends Controller
     {
         return view('estoque.index');
     }
+
+    
+    public function adicionar()
+    {
+        return view('estoque.adicionar'); //pode usar o estoque/adicionar
+    }
 }
