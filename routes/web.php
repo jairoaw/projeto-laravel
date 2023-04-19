@@ -21,8 +21,11 @@ Route::get('/', function () {         //:: operador de reducao de escopo
 Route::get('/estoque', [EstoqueController::class, 
     'index'])->name('estoque');      //o primeiro parametro é a própria classe e o segundo é a funcao que vai ser executada dentro da classe (index)
 
-Route::get('/estoque/adicionar', [EstoqueController::class, 
+Route::get('/estoque/adicionar', [EstoqueController::class,  //GET mostra o formulario  
     'adicionar'])->name('estoque.adicionar');
+
+Route::post('/estoque/adicionar', [EstoqueController::class,  //POST envia o formulario
+    'adicionar']);
 
 
 // Route::get('/teste', function () {
