@@ -22,7 +22,14 @@ class EstoqueSeeder extends Seeder
                 'nome' => 'Camiseta',
                 'quantidade' => 50,
             ],
-            
+            [
+                'nome' => 'Regata',
+                'quantidade' => 5,
+            ],
+            [
+                'nome' => 'Meia',
+                'quantidade' => 5,
+            ],
         ]);
     }
 }
