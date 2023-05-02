@@ -16,11 +16,11 @@ class EstoqueSeeder extends Seeder
         DB::table('estoques')->insert([
             [
                 'nome' => 'Bermuda',
-                'quabntidade' => 30,
+                'quantidade' => 30,
             ],
             [
                 'nome' => 'Camiseta',
-                'quabntidade' => 50,
+                'quantidade' => 50,
             ],
             
         ]);
