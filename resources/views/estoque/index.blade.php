@@ -1,39 +1,34 @@
-Index de estoque
+{{-- resources/views/estoque/index.blade.php --}}
+@extends('base')
 
-@extends ('base')
-
-@section('title', 'estoque')
-    
+@section('title', 'Estoque')
 
 @section('content')
-<div class="mb-5">    <h1>conteudo da Index de estoque</h1></div>
+<div class="mb-5">Index do estoque</div>
 
-<!--listar os itens do estoque-->
-<div>
-    <table>
+<!-- Listar os produtos em estoque -->
+<div class="mb-5">
+    <table class="min-w-full divide-y divide-gray-200">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>PRODUTO</th>
-                <th>QUANTIDADE</th>
+                <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Produto</th>
+                <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Quantidade</th>
             </tr>
         </thead>
-        <tbody>
+
+        <tbody class="bg-white divide-y divide-gray-200">
             @foreach ($lista as $item)
             <tr>
-                <td>{{$item['id']}}</td>
-                <td>{{$item['nome']}}</td>
-                <td>{{$item['quantidade']}}</td>
+                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">{{$item['id']}}</td>
+                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5"> <a href="{{route ('estoque.editar', $item['id'])}}"> {{$item['nome']}}</td>
+                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">{{$item['quantidade']}}</td>
             </tr>
             @endforeach
         </tbody>
     </table>
 </div>
 
-
-    <p><a href="{{ route('estoque.adicionar')}}" 
-    class="rounded-lg border border-primary-500 bg-green-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-primary-700 hover:bg-primary-700 focus:ring focus:ring-primary-200 disabled:cursor-not-allowed disabled:border-primary-300 disabled:bg-primary-300">    
-    Adicionar item</a></p>
-
+<div><a href="{{ route('estoque.adicionar')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Adicionar item</a></div>
 
 @endsection

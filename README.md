@@ -59,3 +59,20 @@ Quando buscamos a aplicação do Git, é preciso configurá-la para que rode cor
 8. Tudo pronto. Se quiser começar a rodar a aplicação, basta serví-la
 • php artisan serve
 ```
+
+### Seeders
+
+```sh
+Roda a migration e o seed
+php artisan migrate:fresh --seed
+php artisan make:request EstoqueRequest
+
+Adicionar pacote de linguagem pt-BR
+
+php artisan lang:publish
+composer require lucascudo/laravel-pt-br-localization --dev
+php artisan vendor:publish --tag=laravel-pt-br-localization
+
+```
+
+pendências: verificar.blade não preenche o formulario ao editar
