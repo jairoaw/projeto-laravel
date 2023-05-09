@@ -12,6 +12,7 @@ class EstoqueController extends Controller
     {
         //$lista = Estoque::all();
         $lista = Estoque::orderBy ('id', 'desc') -> get();          //ordena por id de forma decrescente
+        // se quser mostrar apagados, use: $lista = Estoque::withTrashed()->get();
         return view('estoque.index', ['lista' => $lista]);
         //return view('estoque.index');
     }
@@ -30,7 +31,7 @@ class EstoqueController extends Controller
     
     public function editar(Estoque $estoque){ 
         return view('estoque.adicionar',[
-            'estoque' => $estoque,
+            'editar' => $estoque,
         ]);
             
     }
@@ -41,8 +42,17 @@ class EstoqueController extends Controller
         $estoque->fill($dados);
         $estoque->save();
         return redirect('estoque');
+    }
 
-     
+    public function apagar(Estoque $estoque){
+        /*se o meetodo de acesso for DELETE, apaga no banco, senao mostra a conformação*/
+        if (request()->isMethod('DELETE')){ //aqui apaga de verdade
+            $estoque->delete();
+            return redirect('estoque');
+        }
+        return view('estoque.apagar', [
+            'estoque' => $estoque
+        ]);
     }
 
 }

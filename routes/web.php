@@ -38,14 +38,10 @@ Route::put('/estoque/adicionar/{estoque}',
     [EstoqueController::class,  
     'editarGravar'])->name('estoque.editarGravar');
 
-    // Route::get('/teste', function () {
-//     return 'o teste funcionou';
-// });
+Route::get('/estoque/apagar/{estoque}',
+    [EstoqueController::class,
+    'apagar'])->name('estoque.apagar');    //rota do tipo GET, qualquer um pode apagar
 
-// Route::get('/teste-com-view', function () {
-//     return view('teste');
-// });
-
-// Route::get('/noticia/{id}', function ($id) {
-//     return "voce está lendo a noticia {$id}";
-// });
+Route::delete('/estoque/apagar/{estoque}',
+    [EstoqueController::class,
+    'apagar']);    //acessar a mesma rotas, mas do tipo DELETE, ou seja, método diferente

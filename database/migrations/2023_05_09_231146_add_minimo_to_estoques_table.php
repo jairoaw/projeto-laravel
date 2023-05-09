@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('estoques', function (Blueprint $table) {
-            $table->id();            
-            $table->string('nome');
-            $table->integer('quantidade'); 
-            $table->timestamps(); //cria as colunas created_at e updated_at
-            $table->softDeletes(); //cria a coluna deleted_at
+        Schema::table('estoques', function (Blueprint $table) {
+            $table->integer('minimo')->default(1) -> after('quantidade');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('estoques');
+        Schema::table('estoques', function (Blueprint $table) {
+            $table->dropColumn('minimo');
+        });
     }
 };
