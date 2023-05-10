@@ -25,10 +25,10 @@ class EstoqueRequest extends FormRequest
         return [
             'id' => 'int|nullable',
             'nome' => [
-            'required',
-            'min:3',
-            //'unique:estoques',
-            Rule::unique('estoques')->ignore($this->id), //ignora o id do estoque que está sendo editado
+                'required',
+                'min:3',
+                //'unique:estoques',
+                Rule::unique('estoques')->ignore($this->id)->whereNull('deleted_at'), //ignora o id do estoque que está sendo editado
             ],
             'quantidade' => [
                 'required',

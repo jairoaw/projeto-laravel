@@ -74,6 +74,10 @@ composer require lucascudo/laravel-pt-br-localization --dev
 php artisan vendor:publish --tag=laravel-pt-br-localization
 
 ```
-pendências: verificar.blade não preenche o formulario ao editar
+pendência: verificar.blade não preenche o formulario ao editar
 resolvido: erro na variavel no controller que nao estava declarada
+
+
+
+
 

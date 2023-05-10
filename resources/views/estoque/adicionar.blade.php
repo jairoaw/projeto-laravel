@@ -20,7 +20,7 @@
   <form action="{{route ('estoque.adicionar')}}" method="post" class="space-y-5">
     @if(isset($editar))
       @method('put')
-      <input type="hidden" name="id" value="{{$editar->id}}" >
+      <input type="hidden" name="id" value="{{ $editar->id }}">
     @endif
     
     @csrf

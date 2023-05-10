@@ -31,12 +31,12 @@ Route::post('/estoque/adicionar',
     'adicionarGravar']);
 
 Route::get('/estoque/editar/{estoque}', 
-    [EstoqueController::class,  //GET mostra o formulario
+    [EstoqueController::class, 
     'editar'])->name('estoque.editar');
 
-Route::put('/estoque/adicionar/{estoque}',
+Route::put('/estoque/adicionar/',
     [EstoqueController::class,  
-    'editarGravar'])->name('estoque.editarGravar');
+    'editarGravar']);
 
 Route::get('/estoque/apagar/{estoque}',
     [EstoqueController::class,

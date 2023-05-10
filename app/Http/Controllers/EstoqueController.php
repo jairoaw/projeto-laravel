@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EstoqueRequest;
 use App\Models\Estoque;
+use finfo;
 use Illuminate\Http\Request;      //lida com requisições de formulário
+use Illuminate\Support\Facades\Redis;
 
 class EstoqueController extends Controller
 {
     public function index()
     {
-        //$lista = Estoque::all();
-        $lista = Estoque::orderBy ('id', 'desc') -> get();          //ordena por id de forma decrescente
-        // se quser mostrar apagados, use: $lista = Estoque::withTrashed()->get();
-        return view('estoque.index', ['lista' => $lista]);
-        //return view('estoque.index');
+        $lista = Estoque::orderBy('id', 'desc')->get();
+        // Se quiser mostrar os apagados também
+        // withTrashed()->
+        // Se quiser mostrar só os apagados
+        // onlyTrashed()->
+
+        return view('estoque.index', [
+            'lista' => $lista,
+        ]);
     }
 
     public function adicionar(){       //dd ($form->method() );  // dd = dump and die
@@ -29,11 +35,10 @@ class EstoqueController extends Controller
         return redirect('estoque');
     }
     
-    public function editar(Estoque $estoque){ 
-        return view('estoque.adicionar',[
+    public function editar(Estoque $estoque) {
+        return view('estoque.adicionar', [
             'editar' => $estoque,
         ]);
-            
     }
 
     public function editarGravar(EstoqueRequest $form){
@@ -41,17 +46,25 @@ class EstoqueController extends Controller
         $estoque = Estoque::find($dados['id']);
         $estoque->fill($dados);
         $estoque->save();
-        return redirect('estoque');
+        return redirect('estoque')->with('sucesso', 'Item do estoque editado com sucesso!');
     }
 
     public function apagar(Estoque $estoque){
         /*se o meetodo de acesso for DELETE, apaga no banco, senao mostra a conformação*/
         if (request()->isMethod('DELETE')){ //aqui apaga de verdade
             $estoque->delete();
-            return redirect('estoque');
+            return redirect('estoque')->with('sucesso', 'Item do estoque apagado com sucesso!');
         }
         return view('estoque.apagar', [
             'estoque' => $estoque
+        ]);
+    }
+
+    public function busca (Request $form){
+        $busca = $form->busca;
+        $lista = Estoque::where('nome', 'LIKE', "%{$busca}%")->get();
+        return view('estoque.index', [
+            'lista' => $lista,
         ]);
     }
 
