@@ -87,6 +87,7 @@ criação manual das views
 
 Criação das rotas
 
+Servidor de email mailhog
 
 
 

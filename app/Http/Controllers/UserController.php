@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -21,7 +23,11 @@ class UserController extends Controller
         $data = $data->toArray();
         //criptografar a senha
         $data['password'] = Hash::make($data['password']);
-        User::create($data);
+        $user=User::create($data);
+        //event(new Registered($user));
+        Mail::raw('email teste', function ($message) {
+            $message->to('destinatario@email.com')->subject ('usuario criado com sucesso');          
+        });
         return redirect()->route('user.index');
     }
 
@@ -45,6 +51,7 @@ class UserController extends Controller
         
         return view('user.login');
     }
+    
     public function logout () {
         Auth::logout();
         return redirect()->route('user.login');
