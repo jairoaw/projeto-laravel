@@ -78,6 +78,18 @@ pendência: verificar.blade não preenche o formulario ao editar
 resolvido: erro na variavel no controller que nao estava declarada
 
 
+20230516
+Criação do controller UserController
+php artisan make:controller UserController
+
+Criação das views para users
+criação manual das views
+
+Criação das rotas
+
+
+
+
 
 
 

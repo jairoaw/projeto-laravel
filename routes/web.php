@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +46,19 @@ Route::get('/estoque/apagar/{estoque}',
 Route::delete('/estoque/apagar/{estoque}',
     [EstoqueController::class,
     'apagar']);    //acessar a mesma rotas, mas do tipo DELETE, ou seja, método diferente
+
+
+//agupamento de rotas
+//grupo para rotas que começam com /user
+
+Route::group(['prefix' => '/user'], function () {
+    Route::get('/', [UserController::class, 'index'])->name('user.index');
+    Route::get('/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/create', [UserController::class, 'createSave']);
+    Route::get('/login', [UserController::class, 'login'])->name('user.login');
+    Route::post('/login', [UserController::class, 'login']);
+    Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
+
+    
+
+});
