@@ -1,6 +1,6 @@
 ## Projeto Laravel
 
-20230411
+# 20230411
 ```sh
 composer create-project laravel/laravel projeto
 
@@ -78,7 +78,8 @@ pendência: verificar.blade não preenche o formulario ao editar
 resolvido: erro na variavel no controller que nao estava declarada
 
 #########################################################
-20230516
+
+# 20230516
 ```sh
 Criação do controller UserController
 php artisan make:controller UserController
@@ -91,7 +92,8 @@ Criação das rotas
 Servidor de email mailhog
 ```
 #########################################################
-200230523
+
+# 200230523
 ```sh
 Upload de arquivos
 iniciar a aplicação:
