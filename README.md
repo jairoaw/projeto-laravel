@@ -1,6 +1,13 @@
 ## Projeto Laravel
 
-# 20230411
+
+### montar o projeto em outro computador
+```sh
+alterar a chave no .env
+rodar as migrations
+fazer o link do storage
+```
+### 20230411
 ```sh
 composer create-project laravel/laravel projeto
 
@@ -79,7 +86,7 @@ resolvido: erro na variavel no controller que nao estava declarada
 
 #########################################################
 
-# 20230516
+### 20230516
 ```sh
 Criação do controller UserController
 php artisan make:controller UserController
@@ -93,7 +100,7 @@ Servidor de email mailhog
 ```
 #########################################################
 
-# 200230523
+### 200230523
 ```sh
 Upload de arquivos
 iniciar a aplicação:
@@ -107,5 +114,11 @@ editar o controller em UploadController.php
 
 
 conectar a rota em web.php
+
+linkar arquivos da pasta storage com a pasta public
+php artisan storage:link
+
+fazer uma nova tabela no banco para salvar o nome do arquivo
+
 
 ```	
