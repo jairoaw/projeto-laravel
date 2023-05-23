@@ -79,6 +79,7 @@ resolvido: erro na variavel no controller que nao estava declarada
 
 ##################################################################################################
 20230516
+```sh
 Criação do controller UserController
 php artisan make:controller UserController
 
@@ -88,6 +89,7 @@ criação manual das views
 Criação das rotas
 
 Servidor de email mailhog
+```
 ##################################################################################################
 200230523
 ```sh
