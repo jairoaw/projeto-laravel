@@ -77,7 +77,7 @@ php artisan vendor:publish --tag=laravel-pt-br-localization
 pendência: verificar.blade não preenche o formulario ao editar
 resolvido: erro na variavel no controller que nao estava declarada
 
-##################################################################################################
+#########################################################
 20230516
 ```sh
 Criação do controller UserController
@@ -90,7 +90,7 @@ Criação das rotas
 
 Servidor de email mailhog
 ```
-##################################################################################################
+#########################################################
 200230523
 ```sh
 Upload de arquivos
