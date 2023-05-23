@@ -90,7 +90,7 @@ Criação das rotas
 Servidor de email mailhog
 ##################################################################################################
 200230523
-´´´sh	
+```sh
 Upload de arquivos
 iniciar a aplicação:
 php artisan serve
@@ -104,4 +104,4 @@ editar o controller em UploadController.php
 
 conectar a rota em web.php
 
-´´´
+```	
