@@ -6,7 +6,9 @@
 alterar a chave no .env
 rodar as migrations
 fazer o link do storage
+opção: artisan make:command
 ```
+
 ### 20230411
 ```sh
 composer create-project laravel/laravel projeto
